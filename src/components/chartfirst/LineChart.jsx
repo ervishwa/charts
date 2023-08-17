@@ -19,7 +19,7 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-//"15:","15:05","15:10","15:15","15:20","15:25","15:30","15:35","15:40","15:45","15:50","15:55","16:00","16:05","16:10","16:15","16:20","16:25","16:30","16:35","16:40"
+
 export function LineChart() {
   const labels = [
     "14:00",
@@ -128,9 +128,8 @@ export function LineChart() {
           40, 40, 40, 40, 40, 40, 40, 30, 40, 40, 40, 40, 40, 40, 40, 40, 40,
           40, 40, 40, 40,
         ],
-        backgroundColor: "voilet",
 
-        borderColor: "blue",
+        borderColor: "rgb(128,90,160)",
         pointStyle: "none",
         pointRadius: 0,
       },
@@ -144,8 +143,8 @@ export function LineChart() {
           20, 30, 30, 20, 20, 20, 30, 20, 30, 30, 20, 20, 20, 39, 39, 39, 39,
           39, 39,
         ],
-        backgroundColor: "#F44236",
-        borderColor: "#F44236",
+
+        borderColor: "rgb(225,156,55)",
         pointStyle: "none",
         pointRadius: 0,
       },
@@ -158,8 +157,8 @@ export function LineChart() {
           10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 1, 1, 1, 1, 10,
           10, 10, 10, 10, 10, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
         ],
-        backaroundColor: "4FFCA29%",
-        borderColor: "yellow",
+
+        borderColor: "rgb(221,254,81)",
         pointStyle: "none",
         pointRadius: 0,
       },
@@ -171,8 +170,8 @@ export function LineChart() {
           5, 5, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4,
           4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
         ],
-        backaroundColor: "4FFCA29%",
-        borderColor: "black",
+
+        borderColor: "rgb(80,166,89)",
         pointStyle: "none",
         pointRadius: 0,
       },
@@ -188,16 +187,13 @@ export function LineChart() {
       x: {
         ticks: {
           callback: (value, index, values) => {
-            // Display only every 2nd label and the last label
-            //console.log(values);
-            //console.log(value);
-            if (index % 14 == 0) {
+            if (index % 14 === 0) {
               i++;
               const label = arr[i];
 
               return label;
             }
-            return ""; // Hide other labels
+            return "";
           },
         },
       },
@@ -207,26 +203,14 @@ export function LineChart() {
         },
       },
     },
-    // plugins: {
-    //     legend: {
-    //       display: true,
-    //       position: 'top', // Adjust as needed
-    //     },
-    //   },
-    //   elements: {
-    //     point: {
-    //       radius: 0, // Hide data points
-    //     },
-    //   },
-    //   responsive: true,
-      
+
+    responsive: true,
   };
 
   return (
     <div className="linechart">
-      LineChart
+      <h1>LineChart</h1>
       <Line data={data} options={options} />
     </div>
   );
 }
-
